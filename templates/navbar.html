@@ -20,9 +20,10 @@
                 <!-- <i class='bx bx-home-alt-2 tooltip'></i> -->
                 <span>HOME</span>
             </div>
-            <div class="search-link">
+            <form action="{% url 'home' %}" class="search-link"> 
                 <i class='bx bx-search tooltip'></i>
-            </div> 
+                <input class="search-input" type="text" name="q">
+            </form> 
         </div>
         <div class="nav-menu">
             <div class="logo">
