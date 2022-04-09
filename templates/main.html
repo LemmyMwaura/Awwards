@@ -13,7 +13,10 @@
     {% block link %}{% endblock %}
 </head>
 <body>
-    {% include 'navbar.html' %}
+    <header>
+        {% block prenavbar %}{% endblock %}
+        {% include 'navbar.html' %}
+    </header>
     {% if messages %}
     
     <ul class="messages">

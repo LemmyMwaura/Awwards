@@ -1,17 +1,3 @@
-<header>
-    <nav class="menu-bio">
-        <div class="language">
-            <h4>English</h4>
-        </div>
-        <div class="home-bio">
-            <p>The awards of design, creativity and innovation on the internet</p>
-        </div>
-        <div class="menu-socials">
-            <span><i class='bx bxl-instagram tooltip' ></i></span>
-            <span><i class='bx bxl-twitter tooltip' ></i></span>
-            <span><i class='bx bxl-facebook tooltip'></i></span>
-        </div>
-    </nav>
 
     <nav class="menu-nav">
         <div class="menu-home">
@@ -26,7 +12,7 @@
             </form> 
         </div>
         <div class="nav-menu">
-            <div class="logo">
+            <a href="{% url 'home' %}" class="logo">
                 <svg width="141" height="22.3" viewBox="0 0 280 44.3">
                     <path class="logo-fill" id="logo-a1" d="M1.2,20.8c1-5.1,5.5-8.7,11.9-8.7c7.4,0,13.1,3.1,13.1,13.1v18.6h-6.3l-0.8-4c-2.2,2.7-5.1,4.5-9.6,4.5 C4.2,44.3,0,41,0,34.8s5.5-10.2,13.3-10.2h5.2v-1.4c0-3.5-2.6-4.6-5.5-4.6c-2.2,0-4.4,0.7-5.4,3.6L1.2,20.8z M11.3,37.8 c3.5,0,7.2-2.4,7.2-6.4v-0.6h-5.1c-3.3-0.1-5.3,1.2-5.3,3.9C8.1,36.2,9.2,37.8,11.3,37.8z"></path>
                     <path class="logo-fill" id="logo-a2" d="M151,20.8c1-5.1,5.5-8.7,11.9-8.7c7.4,0,13.1,3.1,13.1,13.1v18.6h-6.3l-0.8-4c-2.2,2.7-5.1,4.5-9.6,4.5 c-5.3,0-9.5-3.3-9.5-9.5s5.5-10.2,13.3-10.2h5.2v-1.4c0-3.5-2.6-4.6-5.5-4.6c-2.2,0-4.4,0.7-5.4,3.6L151,20.8z M161.1,37.8 c3.5,0,7.2-2.4,7.2-6.4v-0.6h-5.1c-3.3,0-5.3,1.2-5.3,4C157.9,36.2,159,37.8,161.1,37.8z"></path>
@@ -38,17 +24,16 @@
                     <path class="logo-fill" id="logo-w1" d="M73.7,12.6l-10,31.2h-6.8l-5.4-20.2l-5.4,20.3h-6.8l-10-31.2h7.8l5.6,21.4L48,12.7h7.1l5.3,21.4L66,12.7 L73.7,12.6L73.7,12.6z"></path>
                     <path class="logo-fill" id="logo-p" d="M274.8,33.8c3,0,5.2,2.2,5.2,5.2s-2.2,5.2-5.2,5.2s-5.2-2.2-5.2-5.2S271.9,33.8,274.8,33.8z"></path>
                 </svg>
-            </div>
+            </a>
             <div class="profile">
                 {% if request.user.is_authenticated %}
                 <h5 class="profile-options">Lemmy</h5>
                 {% else %}
-                <a href="#"class="register">Register/Login</a>
+                <a href="{% url 'login' %}"class="register">Register/Login</a>
                 {% endif %}
             </div>
         </div>
         <div class="nav-post">
-            <a class='post-project' href="#">Submit your site!</a>
+            <a class='post-project' href="{% url 'submit-project' %}">Submit your site!</a>
         </div>
     </nav>
-</header>

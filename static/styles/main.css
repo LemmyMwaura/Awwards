@@ -93,8 +93,12 @@ nav{
     justify-self: center;
 }
 
+nav.menu-bio{
+    border-bottom: 1px solid hsl(0, 0%, 68%);
+}
+
 nav.menu-nav{
-    border-top: 1px solid hsl(0, 0%, 68%);
+    border-bottom: 1px solid hsl(0, 0%, 68%);
 }
 
 .menu-home{
