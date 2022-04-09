@@ -95,3 +95,24 @@ def submit_project(request):
 
     context = { 'form': form }
     return render(request, 'base/submit_project_form.html', context)
+
+@login_required(login_url='login')
+def manage_follow(request, pk):
+    user_profile = Profile.objects.get(id=pk)
+    all_profiles_followers = user_profile.followers.all()
+    
+    current_user = Profile.objects.get(id=request.user.id)
+    all_current_user_is_following = current_user.following.all()
+
+    if user_profile.id != current_user.id:   
+        if current_user in all_profiles_followers:
+            user_profile.followers.remove(current_user)
+        else:  
+            user_profile.followers.add(current_user) 
+
+        if user_profile in all_current_user_is_following:
+            current_user.following.remove(user_profile)  
+        else:
+            current_user.following.add(user_profile) 
+
+    return HttpResponseRedirect(reverse('profile', args=[user_profile.id]))
