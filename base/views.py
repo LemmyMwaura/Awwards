@@ -8,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from django.urls import reverse
 from django.contrib import messages 
+from .forms import ProjectForm
 
 # Create your views here.
 def home(request):
@@ -81,3 +82,16 @@ def profile(request,pk):
 
     context = { 'user':user, 'projects':projects, 'followers':followers, 'following':following }
     return render(request, 'base/profile.html', context)
+
+def submit_project(request):
+    form = ProjectForm()
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid:
+            user = form.save(commit=False)
+            user.user_project_id = request.user.id
+            user.save()
+            return redirect('home')
+
+    context = { 'form': form }
+    return render(request, 'base/submit_project_form.html', context)
