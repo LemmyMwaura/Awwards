@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+{% endblock %}
+
+{% block content%}
+    <section>
+        <form action="{% url 'submit-project'%}" method="POST" enctype="multipart/form-data">
+            {{ form.as_p }}
+        </form>
+    </section>
+{% endblock %}

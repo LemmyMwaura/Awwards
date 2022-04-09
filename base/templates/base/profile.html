@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+{% endblock %}
+
+{% block content%}
+    <section>
+        <h5>{{ user.user_profile.username }}</h5>
+    </section>
+{% endblock %}
