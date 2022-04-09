@@ -4,27 +4,21 @@ body{
 
 section{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 4rem);
-    padding: 2rem 0rem;
 }
 
-.wrapper{
-    background-color: hsl(180, 2%, 13%);
-}
-
-.wrapper *{
-    width: 100%;
-}
-
-.login-form,
-.registration-form{
+.submit-project-form{
     padding: 2rem;
+    background-color: hsl(180, 2%, 13%);
     min-width: 50vw;
     display: grid;
     row-gap: 20px;
+}
+
+.submit-project-form * {
+    width: 100%;
 }
 
 .title{
@@ -32,11 +26,6 @@ section{
     font-size: 2rem;
     text-transform: uppercase;
     color: hsl(0, 0%, 96%);
-}
-
-.footer{
-    padding: 0 2rem 2rem 2rem;
-    min-width: 50vw;
 }
 
 .form-group {
@@ -53,19 +42,9 @@ section{
     color: hsl(0, 0%, 96%);
 }
 
-.names{
-    display: flex;
-    gap: 10px;
-}
-
-.password,
-.username,
-.new-user-firstname,
-.new-user-lastname,
-.new-user-email,
-.new-user-username,
-.new-user-password,
-.new-user-confirm-password{
+.post-form-title,
+.post-form-description,
+.post-form-link{
     border: 2px solid hsl(173, 52%, 53%);
     outline: none;
     background: none;
@@ -74,7 +53,22 @@ section{
     padding: 0 0.5rem;
 }
 
-.form-btn{
+.image-group{
+    display: flex;
+    align-items: center;
+    gap: 00px;
+}
+
+.image-group label{
+    color: hsl(0, 0%, 96%);
+}
+
+.post-form-image{
+    color: hsl(0, 0%, 96%);
+    padding: 0 0.5rem;
+}
+
+.submit-project-btn{
     outline: none;
     border: none;
     padding: 0.5rem;
@@ -86,11 +80,7 @@ section{
     background-color: hsl(173, 52%, 53%);
 }
 
-.form-btn:active{
+.submit-project-btn:active{
     color: hsl(0, 0%, 96%);
     transform: scale(0.95);
-}
-
-.auth-link{
-    color: hsl(173, 52%, 53%);
 }

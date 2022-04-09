@@ -4,11 +4,10 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from django.urls import reverse
 from django.contrib import messages 
-from .forms import ProjectForm
+from .forms import ProjectForm, UserRegistrationForm
 
 # Create your views here.
 def home(request):
@@ -54,11 +53,11 @@ def logout_user(request):
 
 def register_user(request):
     page = 'register'
-    form = UserCreationForm
+    form =  UserRegistrationForm
 
     try:
         if request.method == 'POST':
-            form = UserCreationForm(request.POST)
+            form = UserRegistrationForm(request.POST)
             if form.is_valid():
                 user = form.save(commit=False)
                 user.username = user.username.lower()

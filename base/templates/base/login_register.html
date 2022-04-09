@@ -7,41 +7,82 @@
 
 {% block content %}
 {% if page == 'login' %}
-    <div class="login">
-        <form action="" class="auth-form" method="POST">
-            {% csrf_token %}
-            <h4>LOGIN FORM</h4>
-            <div class="form-group">
-                <label class="form-label" for="username">Username</label>
-                <input type="text" class="username" id="username" name="username" placeholder="Enter Username">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="password">Password</label>
-                <input type="password" class="password" id="password" name="password" placeholder="Enter Password">
-            </div>
-            <input class="form-btn" type="submit" value="Login">
-        </form>
+    <section class="login">
+        <div class="wrapper">
+            <form action="" class="login-form" method="POST">
+                {% csrf_token %}
+                <h4 class="title">LOGIN FORM</h4>
+                <div class="form-group">
+                    <label class="form-label" for="username">Username</label>
+                    <input type="text" class="username" id="username" name="username" placeholder="Enter Username">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" class="password" id="password" name="password" placeholder="Enter Password">
+                </div>
+                <input class="form-btn" type="submit" value="Login">
+            </form>
 
-        <div class="footer">
-            <span>Havent signed up yet?</span>
-            <span> <a class='auth-link' href="{% url 'register' %}">Sign-Up</a> </span>  
-        </div> 
-    </div>
+            <div class="footer">
+                <span>Haven't signed up yet?</span>
+                <span> <a class='auth-link' href="{% url 'register' %}">Sign-Up</a> </span>  
+            </div> 
+        </div>
+    </section>
 
 {% else %}
 
-    <div class="register">
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input class="form-btn" type="submit" value="Register">
-        </form>
-        
-        <div class="footer">
-            <span>Already signed up?</span>
-            <span> <a class='auth-link' href="{% url 'login' %}">Login</a> </span>  
-        </div> 
-    </div>
+    <section class="register">
+        <div class="wrapper">
+            <form action="" class="registration-form" method="POST">
+                {% csrf_token %}
+                <h4 class="title">REGISTRATION FORM</h4>
+                <div class="names">
+                    <div class="form-group">
+                        <label for="id_first_name" class="form-label">First Name</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_last_name" class="form-label">Last Name</label>
+                        {{ form.last_name }}
+                    </div>
+                </div>
+                <div class="form-group">
+                   <label for="" class="form-label">Email</label>
+                   {{ form.email }}
+                </div>
+                <div class="form-group">
+                   <label for="" class="form-label">Username</label>
+                   {{ form.username }}
+                </div>
+                <div class="form-group">
+                    {{ form.username.help_text }}
+                </div>
+                <div class="form-group">
+                   <label for="" class="form-label">Password</label>
+                   {{ form.password1 }}
+                   
+                </div>
+                <div class="form-group">
+                    {{ form.password1.help_text }}
+                </div>
+                <div class="form-group">
+                   <label for="" class="form-label">Password Confirmation</label>
+                   {{ form.password2 }}
+                </div>
+                <div class="form-group">
+                    {{ form.password2.help_text }}
+                </div>
+                <!-- {{ form.as_p }} -->
+                <input class="form-btn" type="submit" value="Register">
+            </form>
+            
+            <div class="footer">
+                <span>Already signed up?</span>
+                <span> <a class='auth-link' href="{% url 'login' %}">Login</a> </span>  
+            </div> 
+        </div>
+    </section>
 
 {% endif %}
 {% endblock %}
