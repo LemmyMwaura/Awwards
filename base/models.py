@@ -28,7 +28,7 @@ class Project(models.Model):
     image = CloudinaryField('image')
     description = models.TextField()
     live_link = models.TextField(blank=True)
-    user_project = models.ForeignKey(User ,on_delete=models.CASCADE)
+    user_project = models.ForeignKey(Profile ,on_delete=models.CASCADE)
     ratings = models.ManyToManyField('Rating',related_name='ratings', blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
