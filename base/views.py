@@ -85,12 +85,15 @@ def profile(request,pk):
 def submit_project(request):
     form = ProjectForm()
     if request.method == 'POST':
-        form = ProjectForm(request.POST, request.FILES)
-        if form.is_valid:
-            user = form.save(commit=False)
-            user.user_project_id = request.user.id
-            user.save()
-            return redirect('home')
+        try:
+            form = ProjectForm(request.POST, request.FILES)
+            if form.is_valid:
+                user = form.save(commit=False)
+                user.user_project_id = request.user.id
+                user.save()
+                return redirect('home')
+        except Exception as e:
+            messages.error(request, 'An error occured during submition. Try again')
 
     context = { 'form': form }
     return render(request, 'base/submit_project_form.html', context)

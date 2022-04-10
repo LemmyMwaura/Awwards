@@ -1,0 +1,22 @@
+<article class="project-wrapper">
+    <img class="project-image" src="{{ project.image.url }}" alt="One of {{project.user_project.user_profile.username}}'s Project">
+    <div class="project-details">
+        <div class="project-title">{{project.title}}</div>
+        <div class="split-details">
+            <div class="project-username">
+                <span >by</span>
+                <span><i class='bx bxs-badge-check'></i></span>
+                <span>
+                    <a href="{% url 'profile' request.user.id %}"class="project-name">{{project.user_project.user_profile.username}}</a>
+                </span>
+            </div>
+            <div class="project-date-posted">
+                {{  project.created|date:"F j, Y" }}
+            </div>
+        </div>
+    </div>
+    <div class="project-footer">
+        <span>Dev</span>
+        <!-- {{ project.live_link }} -->
+    </div>
+</article>

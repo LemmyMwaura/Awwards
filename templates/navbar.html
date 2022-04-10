@@ -27,7 +27,7 @@
             </a>
             <div class="profile">
                 {% if request.user.is_authenticated %}
-                <h5 class="profile-options">Lemmy</h5>
+                <a href="{% url 'profile' request.user.id %}"class="profile-options">{{ request.user.username }}</a>
                 {% else %}
                 <a href="{% url 'login' %}"class="register">Register/Login</a>
                 {% endif %}
