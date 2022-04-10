@@ -43,7 +43,6 @@ section{
 }
 
 .post-form-title,
-.post-form-description,
 .post-form-link{
     border: 2px solid hsl(173, 52%, 53%);
     outline: none;
@@ -51,6 +50,14 @@ section{
     height: 3rem;
     color: hsl(0, 0%, 96%);
     padding: 0 0.5rem;
+}
+
+.post-form-description{
+    border: 2px solid hsl(173, 52%, 53%);
+    outline: none;
+    background: none;
+    color: hsl(0, 0%, 96%);
+    padding: 0.5rem;
 }
 
 .image-group{
@@ -83,4 +90,12 @@ section{
 .submit-project-btn:active{
     color: hsl(0, 0%, 96%);
     transform: scale(0.95);
+}
+
+input::-webkit-autofill,
+input::-webkit-autofill:hover,
+input::-webkit-autofill:focus,
+input::-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: hsl(180, 2%, 13%) !important;
 }

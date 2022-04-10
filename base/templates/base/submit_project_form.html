@@ -8,6 +8,7 @@
 {% block content%}
     <section>
         <form class="submit-project-form" action="{% url 'submit-project'%}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <h5 class="title">Submit Project</h5>
             <div class="form-group">
                 <label for="id_title" class="form-label">Title</label>

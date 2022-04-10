@@ -1,0 +1,99 @@
+.projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    padding: 5rem 2rem;
+    gap: 50px;
+}
+
+.project-wrapper{
+    background-color: hsl(180, 2%, 13%);
+    overflow: hidden;
+}
+
+.project-image{
+    aspect-ratio: 4/3;
+    width: 100%;
+    object-fit: cover;
+    transition: 200ms ease;
+}
+
+.project-image:hover{
+    transform: scale(1.15);
+}
+
+.project-details{
+    position: relative;
+    padding: 2rem 2rem;
+    z-index: 100;
+    background-color: hsl(180, 2%, 13%);
+}
+
+.project-title{
+    text-transform: capitalize;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.split-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 500;
+    margin-top: 2rem;
+}
+
+.project-username{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.project-username span:first-child{
+    margin-right: 5px;
+}
+
+.project-username * {
+    font-weight: 500;
+}
+
+.project-footer{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    margin: 0rem 2rem;
+    padding: 1rem 0rem;
+}
+
+.project-footer::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-color:hsl(0, 0%, 26%);
+}
+
+.project-footer span{
+    position: relative;
+    background-color: yellow;
+    color: black;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border-radius: 0.9rem;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* .project-footer span::before{
+    content: 'Developer';
+    position: absolute;
+    background-color: inherit;
+    border-radius: 0.9rem;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    top: -20px;
+    left: 0;
+} */
