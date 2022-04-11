@@ -8,7 +8,8 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.profile-links{
+.profile-links,
+.profile-edit{
     display:flex;
     gap: 20px;
     justify-content: center;
@@ -25,6 +26,7 @@
     border-radius: 50%;
     transition: 300ms ease;
     cursor: pointer;
+    color: hsl(0, 0%, 68%);
 }
 
 .link:hover{
@@ -57,9 +59,10 @@
     height: 8rem;
 }
 
-.profile-options{
+.profile-edit{
     display:flex;
     justify-content: center;
+    width: auto;
 }
 
 .title{
@@ -71,5 +74,14 @@
     color: hsl(0, 0%, 96%);
     margin-top: 2rem;
     margin-bottom: -1rem;
+}
+
+
+@media screen and (max-width: 982px) {
+    .profile-wrapper{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
 }
 

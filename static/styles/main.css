@@ -67,11 +67,20 @@ a{
 }
 
 nav{
-    display: grid;
+    display: flex;
     align-items: center;
-    grid-template-columns: 1fr 5fr 1fr;
+    justify-content: space-between;
     background-color: hsl(0, 0%, 23%);
     height: 4rem;
+}
+
+.menu-bio{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+.menu-bio * {
+    color: hsl(0, 0%, 96%)
 }
 
 .language{
@@ -102,16 +111,26 @@ nav.menu-nav{
 }
 
 .menu-home{
-    display: grid;
+    display: flex;
     align-items: center;
     height: 100%;
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
+}
+
+.logo{
+    padding: 0 0.4rem;
+}
+
+.logo svg{
+    fill:hsl(0, 0%, 96%);
 }
 
 .menu-socials{
     padding: 0 0.5rem;
     justify-self: flex-end;
+}
+
+.register{
+    color:hsl(0, 0%, 96%);
 }
 
 .home-link{
@@ -155,23 +174,13 @@ nav.menu-nav{
 
 .nav-menu{
     height: 100%;
-    position: relative;
-    display: grid;
+    display: flex;
     align-items: center;
-}
-
-.logo{
-    justify-self: center;
+    gap:30px;
 }
 
 .profile{
-    position: absolute;
-    right: 2rem;
     text-transform: uppercase;
-}
-
-.profile * {
-    color: hsl(0, 0%, 68%);
 }
 
 .nav-post{
@@ -180,6 +189,7 @@ nav.menu-nav{
     justify-content: center;
     background-color: hsl(180, 2%, 13%);
     height: 100%;
+    padding: 0 0.5rem;
 }
 
 .post-project{
@@ -195,6 +205,7 @@ nav.menu-nav{
     padding: 0.5rem;
     background-color: hsl(180, 2%, 13%);
     transition: 0.2s ease;
+    color: hsl(0, 0%, 68%);
 }
 
 .profile-options:hover{
@@ -211,6 +222,7 @@ nav.menu-nav{
     color: hsl(0, 0%, 96%);
     text-transform: uppercase;
     background-color: hsl(0, 0%, 23%);
+    cursor: pointer;
 }
 
 /* Dropdown */
@@ -240,4 +252,26 @@ nav.menu-nav{
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+@media screen and (max-width: 720px) {
+    body{
+        font-size: 14px;
+    }
+
+    .menu-bio{
+        display: none;
+    }
+
+    .search-link input{
+        width: 3rem;
+    }
+
+}
+
+
+@media screen and (max-width: 590px) {
+    .nav-post{
+        display: none;
+    }
 }

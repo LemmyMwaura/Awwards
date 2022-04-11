@@ -15,8 +15,6 @@
                 <div class="linkedln link"><i class='bx bxl-linkedin-square tooltip' ></i></div>
                 {% if request.user.is_authenticated %}
                 <div class="follow link">{{ followers.count }} Followers</div>
-                {% else %}
-                <div class="follow link">follow</div>
                 {% endif %}
             </div>
             <div class="profile-user">
@@ -25,11 +23,19 @@
                     {{ user.user_profile.bio }}
                 </div>
             </div>
-            <div class="profile-options">
+            <div class="profile-edit">
+                {% if request.user.id == user.user_profile.id %}
                 <div class="follow link">Edit Profile</div>
+                {% else %}
+                <a class="follow link" href="{% url 'manage-follow' user.id %}">Follow/Unfollow</a>
+                {% endif %}
             </div>
         </article>
+        {% if request.user.id == user.user_profile.id %}
         <div class="title">Your Projects</div>
+        {% else %}
+        <div class="title">User's Projects</div>
+        {% endif %}
         <article class="projects">
             {% for project in projects %}
                 {% include 'base/projects_component.html' %}

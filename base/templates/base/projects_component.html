@@ -7,7 +7,7 @@
                 <span >by</span>
                 <span><i class='bx bxs-badge-check'></i></span>
                 <span>
-                    <a href="{% url 'profile' request.user.id %}"class="project-name">{{project.user_project.user_profile.username}}</a>
+                    <a href="{% url 'profile' project.user_project.id %}"class="project-name">{{project.user_project.user_profile.username}}</a>
                 </span>
             </div>
             <div class="project-date-posted">
@@ -16,8 +16,7 @@
         </div>
     </div>
     <div class="project-footer">
-        <a href="{% url 'project' project.id %}">View</a>
+        <a  class='project-link' href="{% url 'project' project.id %}">View</a>
         <span>Dev</span>
-        <!-- {{ project.live_link }} -->
     </div>
 </article>

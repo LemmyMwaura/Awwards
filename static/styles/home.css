@@ -64,6 +64,8 @@
 .project-footer{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
     position: relative;
     margin: 0rem 2rem;
     padding: 1rem 0rem;
@@ -80,7 +82,18 @@
 
 .project-footer span{
     position: relative;
-    background-color: yellow;
+    background-color: gold;
+    color: black;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border-radius: 0.9rem;
+    padding: 8px;
+    cursor: not-allowed;
+    z-index: 1000;
+}
+
+.project-link{
+    background-color: hsl(173, 52%, 53%);
     color: black;
     font-weight: 600;
     font-size: 0.8rem;
@@ -90,14 +103,8 @@
     z-index: 1000;
 }
 
-/* .project-footer span::before{
-    content: 'Developer';
-    position: absolute;
-    background-color: inherit;
-    border-radius: 0.9rem;
-    height: auto;
-    width: auto;
-    padding: 10px;
-    top: -20px;
-    left: 0;
-} */
+@media screen and (max-width: 720px) {
+    .projects{
+        padding: 3rem 1rem;
+    }
+}
