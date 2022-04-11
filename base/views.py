@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 from rest_framework.decorators import APIView
-from .serializers import ProfileSerializer, ProjectSerializer
+from .serializers import ProfileSerializer, ProjectSerializer, UserSerializer
 from django.db.models import Q
 from django.urls import reverse
 from django.contrib import messages 
@@ -19,6 +19,12 @@ class ProfilesList(APIView):
         serializer = ProfileSerializer(profiles, many=True)
         return Response(serializer.data)
 
+class UsersList(APIView):
+    def get(self,request, format=None):
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+        
 class ProjectList(APIView):
     def get(self,request, format=None):
         projects = Project.objects.all()

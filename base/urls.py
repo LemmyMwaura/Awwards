@@ -12,5 +12,6 @@ urlpatterns = [
     path('add_rating/<str:pk>/', views.add_ratings, name='add-rating'),
 
     path('api/all_profiles/', views.ProfilesList.as_view(), name='api-profiles'),
-    path('api/all_projects/', views.ProjectList.as_view(), name='api-projects')
+    path('api/all_projects/', views.ProjectList.as_view(), name='api-projects'),
+    path('api/all_users/', views.UsersList.as_view(), name='api-users')
 ]
