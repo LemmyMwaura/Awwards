@@ -172,4 +172,4 @@ def manage_follow(request, pk):
         else:
             current_user.following.add(user_profile) 
 
-    return HttpResponseRedirect(reverse('profile', args=[user_profile.id]))
+    return redirect('profile',pk=user_profile.id)
