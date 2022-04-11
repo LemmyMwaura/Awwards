@@ -48,18 +48,46 @@
     margin-bottom: 10px;
 }
 
+.add-rating{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.add-rating-btn{
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color:hsl(180, 2%, 13%);
+    background-color: hsl(173, 52%, 53%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.vote-tooltip{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
 .uservotes{
     text-transform: uppercase;
     font-size: 1.5rem;
 }
 
+
 .info-tooltip{
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .ratings-container{
     display: grid;
-    row-gap: 10px;
+    row-gap: 5px;
 }
 
 .rating-wrapper{
@@ -107,6 +135,7 @@
     font-size: 2rem;
     border-radius: 50%;
     font-weight: 300;
+    cursor: pointer;
 }
 
 .rating-objects span::before{
@@ -209,8 +238,7 @@
     background-color: hsl(180, 2%, 13%);
     display: grid;
     row-gap: 20px;
-    margin-top: 20px;
-    padding: 4rem;
+    padding: 2rem;
 }
 
 .rating-form * {
@@ -261,4 +289,68 @@
     color:hsl(180, 2%, 13%);
     text-transform: uppercase;
     background-color: hsl(173, 52%, 53%);
+}
+
+.submit-ratings-btn:active,
+.add-rating-btn:active{
+    transform: scale(0.95);
+}
+
+.average{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.average span{
+    font-size: 4rem;
+    width: 8rem;
+}
+
+/* Modal form */
+.rating-form{
+    position: fixed;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    min-width: 50vw;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.rating-form.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .9);
+    pointer-events: none;
+    transition: 0.4s ease;
+}
+
+.overlay.active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+.overlay-tooltip{
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-size: 8rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.overlay-tooltip:hover{
+    transform: rotate(90deg);
 }

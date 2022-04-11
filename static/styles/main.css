@@ -190,3 +190,54 @@ nav.menu-nav{
 .tooltip{
     font-size: 1.3rem;
 }
+
+.profile-options{
+    padding: 0.5rem;
+    background-color: hsl(180, 2%, 13%);
+    transition: 0.2s ease;
+}
+
+.profile-options:hover{
+    color: hsl(0, 0%, 96%);
+}
+
+.dropdown-btn{
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    height: 100%;
+    font-weight: bold;
+    color: hsl(0, 0%, 96%);
+    text-transform: uppercase;
+    background-color: hsl(0, 0%, 23%);
+}
+
+/* Dropdown */
+.dropdown-menu.items{
+    display: grid;
+    gap: 10px;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown-menu{
+    position: absolute;
+    left: 0;
+    top: calc(100% + 1.05rem);
+    background-color: hsl(0, 0%, 26%);
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    z-index: 100;
+    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.dropdown.active > .dropdown-menu{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
