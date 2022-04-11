@@ -40,19 +40,19 @@ class Project(models.Model):
         return self.title
 
 class Rating(models.Model):
-    creativty = models.IntegerField(default=5, help_text='value 1 to 10', validators=[MaxValueValidator(10),
+    creativity = models.IntegerField(default=5, help_text='value 1 to 10', validators=[MaxValueValidator(10),
             MinValueValidator(1)]
         )
-    Design = models.IntegerField(default=5, help_text='value 1 to 10', validators=[MaxValueValidator(10),
+    design = models.IntegerField(default=5, help_text='value 1 to 10', validators=[MaxValueValidator(10),
             MinValueValidator(1)]
         )
-    Usability = models.IntegerField(default=5, help_text='value 1 to 10', validators=[MaxValueValidator(10),
+    usability = models.IntegerField(default=5, help_text='value 1 to 10', validators=[MaxValueValidator(10),
             MinValueValidator(1)]
         )
-    Creativity = models.IntegerField(default=5, help_text='value 1 to 10', validators=[MaxValueValidator(10),
+    content = models.IntegerField(default=5, help_text='value 1 to 10', validators=[MaxValueValidator(10),
             MinValueValidator(1)]
         )
-    post = models.ForeignKey(Project ,on_delete=models.CASCADE)
+    project = models.ForeignKey(Project ,on_delete=models.CASCADE)
     rated_by = models.ForeignKey(User ,on_delete=models.CASCADE)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)

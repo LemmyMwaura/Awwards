@@ -1,0 +1,90 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'styles/project.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="project-page">
+    <article class="project-wrapper">
+        <img class="project-image" src="{{ project.image.url }}" alt="One of {{project.user_project.user_profile.username}}'s Project">
+        <div class="project-details">
+            <div class="project-title">
+                <span>{{project.title}}</span>
+                <span>{{project.created|date:"F j" }} <i class='bx bx-calendar'></i></span>
+            </div>
+            <div class="split-details">
+                <div class="project-username">
+                    <span >by</span>
+                    <span><i class='bx bxs-badge-check'></i></span>
+                    <span>
+                        <a href="{% url 'profile' request.user.id %}"class="project-name">{{project.user_project.user_profile.username}}</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="project-ratings">
+        <div class="project-ratings-title">
+            <div class="uservotes">User Votes</div>
+            <i class='bx bx-info-circle info-tooltip'></i>
+        </div>
+        <div class="ratings-container">
+            {% for rating in ratings %}
+            <div class="rating-wrapper">
+                <div class="rating">
+                    <span class="user-object">{{rating.rated_by.username }} </span>
+                </div>
+                <div class="rating rating-elements">
+                    <div class="rating-objects">
+                        <span data-rating="creativity">{{rating.creativity}}</span>
+                        <span data-rating="design">{{rating.design}}</span>
+                        <span data-rating="usability">{{rating.usability}}</span>
+                        <span data-rating="content">{{rating.content}}</span>                          
+                    </div>
+                    <div class="print">
+                        <div class="print-text">DEV</div>
+                        <i class='bx bx-fingerprint fingerprint'></i>
+                    </div>
+                </div>  
+            </div>
+            {% endfor %}          
+        </div>
+        <form class="rating-form" action="{% url 'add-rating' project.id %}" method="POST">
+            {% csrf_token %}
+            <div class="title">Submit Your Rating</div>
+            <div class="form-group">
+                <label for="id_creativity" class="form-label">Creativity</label>
+                {{ form.creativity }}
+            </div>
+            <div class="form-group">
+                {{ form.creativity.help_text }}
+            </div>
+            <div class="form-group">
+                <label for="id_design" class="form-label">Design</label>
+                {{ form.design }}
+            </div>
+            <div class="form-group">
+                {{ form.design.help_text }}
+            </div>
+            <div class="form-group">
+                <label for="id_usability" class="form-label">Usability</label>
+                {{ form.usability }}
+            </div>
+            <div class="form-group">
+                {{ form.usability.help_text }}
+            </div>
+            <div class="form-group">
+                <label for="id_content" class="form-label">Content</label>
+                {{ form.content }}
+            </div>
+            <div class="form-group">
+                {{ form.content.help_text }}
+            </div>
+            <input type="submit" class="submit-ratings-btn" value="Rate">
+        </form>
+    </div>
+</section>
+{% endblock %}

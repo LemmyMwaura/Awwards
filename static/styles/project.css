@@ -1,0 +1,264 @@
+.project-wrapper{
+    margin: 4rem 8rem;
+    background-color: hsl(180, 2%, 13%);
+}
+
+.project-image{
+    aspect-ratio: 16/9;
+    width: 100%;
+    object-fit: cover;
+}
+
+.project-details{
+    padding: 2rem;
+    
+}
+
+.project-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.split-details{
+    margin-top: 2rem;
+}
+
+.project-username{
+    font-size: 1.3rem;
+}
+
+.project-name{
+    color: hsl(173, 52%, 53%);
+}
+
+.project-ratings{
+    margin: 4rem 8rem;
+}
+
+.project-ratings-title{
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: hsl(180, 2%, 13%);
+    margin-bottom: 10px;
+}
+
+.uservotes{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.info-tooltip{
+    font-size: 2rem;
+}
+
+.ratings-container{
+    display: grid;
+    row-gap: 10px;
+}
+
+.rating-wrapper{
+    display: flex;
+    justify-content: space-between;
+    background-color: hsl(180, 2%, 13%);
+}
+
+.rating{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;  
+}
+
+.user-object{
+    padding: 2rem;
+    background-color: hsl(173, 52%, 53%);
+    border-radius: 50%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+}
+
+.rating-elements{
+    display: flex;
+    gap: 30px;
+}
+
+.rating-objects{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.rating-objects span{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 100%;
+    font-size: 2rem;
+    border-radius: 50%;
+    font-weight: 300;
+}
+
+.rating-objects span::before{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: attr(data-rating);
+    color: white;
+    width: auto;
+    border-radius: 30px;
+    padding: 5px 10px;
+    height: auto;
+    top: -80px;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: 300ms ease;
+}
+
+.rating-objects span::after{
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 20px;
+    top: -43px;
+    background-color: black;
+    opacity: 0;
+    pointer-events: none;
+    transform: rotate(45deg);
+    transition: 300ms ease;
+}
+
+.rating-objects span:hover::before,
+.rating-objects span:hover::after{
+    opacity: 1;
+}
+
+.rating-objects span:first-child{
+    color:#cc654b;
+    border: 2px solid #cc654b;
+}
+
+.rating-objects span:first-child::before,
+.rating-objects span:first-child::after{
+    background: #cc654b;
+}
+
+.rating-objects span:nth-child(2){
+    color: #30e74f;
+    border: 2px solid #30e74f;
+}
+
+.rating-objects span:nth-child(2)::before,
+.rating-objects span:nth-child(2)::after{
+    background: #30e74f;
+}
+
+.rating-objects span:nth-child(3){
+    color: #e4ba4f;
+    border: 2px solid #e4ba4f
+}
+
+.rating-objects span:nth-child(3)::before,
+.rating-objects span:nth-child(3)::after{
+    background: #e4ba4f
+}
+
+.rating-objects span:nth-child(4){
+    color: #1b92a2;
+    border: 2px solid #1b92a2;
+}
+
+.rating-objects span:nth-child(4)::before,
+.rating-objects span:nth-child(4)::after{
+    background: #1b92a2;
+}
+
+.print{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:0 1rem;
+    width: 5rem;
+    border: 2px solid hsl(0, 0%, 68%);
+}
+
+.print-text{
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.fingerprint {
+    font-size: 1.4rem;
+}
+
+
+.rating-form{
+    background-color: hsl(180, 2%, 13%);
+    display: grid;
+    row-gap: 20px;
+    margin-top: 20px;
+    padding: 4rem;
+}
+
+.rating-form * {
+    width: 100%;
+}
+
+.title{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: hsl(0, 0%, 96%);
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-label{
+    position: absolute;
+    top: -10px;
+    left: 7px;
+    width: auto;
+    padding: 0 0.3rem;
+    background: hsl(180, 2%, 13%);
+    color: hsl(0, 0%, 96%);
+}
+
+.rating-creativity,
+.rating-design,
+.rating-content,
+.rating-usability{
+    border: 2px solid hsl(173, 52%, 53%);
+    outline: none;
+    background: none;
+    height: 3rem;
+    color: hsl(0, 0%, 96%);
+    padding: 0 0.5rem;
+}
+
+.submit-ratings-btn{
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    height: 4rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color:hsl(180, 2%, 13%);
+    text-transform: uppercase;
+    background-color: hsl(173, 52%, 53%);
+}

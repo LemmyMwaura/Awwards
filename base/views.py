@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.urls import reverse
 from django.contrib import messages 
-from .forms import ProjectForm, UserRegistrationForm
+from .forms import ProjectForm, UserRegistrationForm, RatingForm
 
 # Create your views here.
 def home(request):
@@ -97,6 +97,40 @@ def submit_project(request):
 
     context = { 'form': form }
     return render(request, 'base/submit_project_form.html', context)
+
+def project_page(request,pk):
+    project = Project.objects.get(id=pk)
+    ratings = project.rating_set.all()
+    form = RatingForm
+
+    context = {'project':project, 'form':form, 'ratings':ratings}
+    return render(request, 'base/project.html', context)
+
+@login_required(login_url='login')
+def add_ratings(request,pk):
+    project = Project.objects.get(id=pk)
+    ratings = project.rating_set.all()
+    current_user = User.objects.get(id=request.user.id)
+    print(ratings)
+
+    if current_user in ratings:
+        messages.error(request, 'Your rating was already submitted')
+        return redirect('project',pk=pk) 
+
+    try:
+        if request.method == 'POST':
+            form = RatingForm(request.POST)
+            if form.is_valid():
+                rating = form.save(commit=False)
+                rating.project_id = int(pk)
+                rating.rated_by_id = request.user.id
+                rating.save()
+                messages.success(request, 'Your rating was added successfully')
+                return redirect('project',pk=pk)
+    except Exception as e:
+        print(e)
+        messages.error('Rating could not be added, Please try again')
+        return redirect('Project')
 
 @login_required(login_url='login')
 def manage_follow(request, pk):
