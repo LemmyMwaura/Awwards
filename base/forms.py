@@ -1,4 +1,3 @@
-from tkinter import Widget
 from django.forms import ClearableFileInput, EmailField, EmailInput, ModelForm, NumberInput, TextInput, Textarea,URLInput, CharField
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
