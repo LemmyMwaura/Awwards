@@ -48,43 +48,46 @@
                         <div class="print-text">DEV</div>
                         <i class='bx bx-fingerprint fingerprint'></i>
                     </div>
+                    <div class="average">
+                        <span>{{ rating.get_average }}</span>
+                    </div>
                 </div>  
             </div>
             {% endfor %}          
         </div>
-        <form class="rating-form" action="{% url 'add-rating' project.id %}" method="POST">
-            {% csrf_token %}
-            <div class="title">Submit Your Rating</div>
-            <div class="form-group">
-                <label for="id_creativity" class="form-label">Creativity</label>
-                {{ form.creativity }}
-            </div>
-            <div class="form-group">
-                {{ form.creativity.help_text }}
-            </div>
-            <div class="form-group">
-                <label for="id_design" class="form-label">Design</label>
-                {{ form.design }}
-            </div>
-            <div class="form-group">
-                {{ form.design.help_text }}
-            </div>
-            <div class="form-group">
-                <label for="id_usability" class="form-label">Usability</label>
-                {{ form.usability }}
-            </div>
-            <div class="form-group">
-                {{ form.usability.help_text }}
-            </div>
-            <div class="form-group">
-                <label for="id_content" class="form-label">Content</label>
-                {{ form.content }}
-            </div>
-            <div class="form-group">
-                {{ form.content.help_text }}
-            </div>
-            <input type="submit" class="submit-ratings-btn" value="Rate">
-        </form>
     </div>
+    <form class="rating-form" action="{% url 'add-rating' project.id %}" method="POST">
+        {% csrf_token %}
+        <div class="title">Submit Your Rating</div>
+        <div class="form-group">
+            <label for="id_creativity" class="form-label">Creativity</label>
+            {{ form.creativity }}
+        </div>
+        <div class="form-group">
+            {{ form.creativity.help_text }}
+        </div>
+        <div class="form-group">
+            <label for="id_design" class="form-label">Design</label>
+            {{ form.design }}
+        </div>
+        <div class="form-group">
+            {{ form.design.help_text }}
+        </div>
+        <div class="form-group">
+            <label for="id_usability" class="form-label">Usability</label>
+            {{ form.usability }}
+        </div>
+        <div class="form-group">
+            {{ form.usability.help_text }}
+        </div>
+        <div class="form-group">
+            <label for="id_content" class="form-label">Content</label>
+            {{ form.content }}
+        </div>
+        <div class="form-group">
+            {{ form.content.help_text }}
+        </div>
+        <input type="submit" class="submit-ratings-btn" value="Rate">
+    </form>
 </section>
 {% endblock %}

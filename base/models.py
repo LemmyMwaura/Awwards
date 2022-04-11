@@ -61,3 +61,7 @@ class Rating(models.Model):
 
     def __str__(self):
         return f'rated by:{self.rated_by.username}'
+
+    def get_average(self):
+        value = self.creativity + self.design + self.content + self.usability
+        return '%.2f'%(value/4)
