@@ -1,15 +1,30 @@
-from .models import Project, Profile, Rating 
+from .models import Project, Profile
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from rest_framework.response import Response
+from rest_framework.decorators import APIView
+from .serializers import ProfileSerializer, ProjectSerializer
 from django.db.models import Q
 from django.urls import reverse
 from django.contrib import messages 
 from .forms import ProjectForm, UserRegistrationForm, RatingForm
 
 # Create your views here.
+class ProfilesList(APIView):
+    def get(self,request, format=None):
+        profiles = Profile.objects.all()
+        serializer = ProfileSerializer(profiles, many=True)
+        return Response(serializer.data)
+
+class ProjectList(APIView):
+    def get(self,request, format=None):
+        projects = Project.objects.all()
+        serializer = ProjectSerializer(projects, many=True)
+        return Response(serializer.data)
+
 def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
     projects = Project.objects.filter(
@@ -82,6 +97,7 @@ def profile(request,pk):
     context = { 'user':user, 'projects':projects, 'followers':followers, 'following':following }
     return render(request, 'base/profile.html', context)
 
+@login_required(login_url='login')
 def submit_project(request):
     form = ProjectForm()
     if request.method == 'POST':
@@ -115,22 +131,21 @@ def add_ratings(request,pk):
 
     if current_user in ratings:
         messages.error(request, 'Your rating was already submitted')
-        return redirect('project',pk=pk) 
+        return redirect('project',pk=pk)
 
-    try:
-        if request.method == 'POST':
+    if request.method == 'POST':
+        try:
             form = RatingForm(request.POST)
             if form.is_valid():
-                rating = form.save(commit=False)
-                rating.project_id = int(pk)
-                rating.rated_by_id = request.user.id
-                rating.save()
-                messages.success(request, 'Your rating was added successfully')
+                    rating = form.save(commit=False)
+                    rating.project_id = int(pk)
+                    rating.rated_by_id = request.user.id
+                    rating.save()
+                    messages.success(request, 'Your rating was added successfully')
+                    return redirect('project',pk=pk)
+        except ValueError as e:
+                messages.error(request, 'Rating could not be added, Please try again. Ensure your values are between 1 and 10', e) 
                 return redirect('project',pk=pk)
-    except Exception as e:
-        print(e)
-        messages.error('Rating could not be added, Please try again')
-        return redirect('Project')
 
 @login_required(login_url='login')
 def manage_follow(request, pk):
