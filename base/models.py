@@ -38,6 +38,12 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    def save_project(self):
+        self.save()
+
+    def delete_project(self):
+        self.delete()
+
 class Rating(models.Model):
     creativity = models.IntegerField(default=5, help_text='value 1 to 10', validators=[MaxValueValidator(10),
             MinValueValidator(1)]
