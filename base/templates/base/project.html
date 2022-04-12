@@ -62,6 +62,13 @@
                         <a href="{% url 'profile' request.user.id %}"class="project-name">{{project.user_project.user_profile.username}}</a>
                     </span>
                 </div>
+                <div class="project-description">
+                    {{project.description}}
+                </div>
+                <a class="link-route" href=" {{project.live_link}}" target="_blank">
+                    <span>Open</span>
+                    <i class='bx bx-link-external link-tooltip'></i>
+                </a>
             </div>
         </div>
     </article>
@@ -69,11 +76,18 @@
         <div class="project-ratings-title">
             <div class="uservotes">User Votes</div>
             <div class="add-rating">
-                <button class="add-rating-btn activate-btn">
+                <button class="add-rating-btn activate-btn" >
                     <span>Vote</span>
                     <i class='bx bx-plus vote-tooltip'></i>
                 </button>
-                <i class='bx bx-info-circle info-tooltip'></i>
+                <div class="dropdown" data-dropdown>
+                    <button class="info-btn dropdown-btn" data-dropdown-button>
+                        <i class='bx bx-info-circle info-tooltip'data-dropdown-button></i>
+                    </button>
+                    <div class="dropdown-menu info-message-wrapper">
+                        <p class="info-message">Add your <span>rating</span> and the <span>average</span> will automatically be calculated</p>
+                    </div>
+                </div>
             </div> 
         </div>
         <div class="ratings-container">

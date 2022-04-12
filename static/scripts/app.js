@@ -1,4 +1,4 @@
-// Dropdown
+// Dropdown menus
 document.addEventListener('click', (e) => {
     const isDropDownButton = e.target.matches('[data-dropdown-button]')
     if(!isDropDownButton && e.target.closest('[data-dropdown]') != null) return;
@@ -14,7 +14,20 @@ document.addEventListener('click', (e) => {
     })
 })
 
-// Modal
+// Flash messages modals
+const modalBtns = document.querySelectorAll('.modal-btn')
+modalBtns.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    closeFlashMessage(btn)
+  })
+})
+
+function closeFlashMessage(btn){
+    let modal = btn.closest('.modal')
+    modal.classList.add('inactive')
+}
+
+// Modal Forms
 const createBtn = document.querySelector('.activate-btn')
 const modalForm = document.querySelector('.modal')
 const overlay = document.querySelector('.overlay')

@@ -84,6 +84,7 @@ section{
     color:hsl(180, 2%, 13%);
     text-transform: uppercase;
     background-color: hsl(173, 52%, 53%);
+    cursor: pointer;
 }
 
 .form-btn:active{

@@ -10,6 +10,7 @@ section{
 }
 
 .submit-project-form{
+    position: relative;
     padding: 2rem;
     background-color: hsl(180, 2%, 13%);
     min-width: 50vw;
@@ -26,6 +27,45 @@ section{
     font-size: 2rem;
     text-transform: uppercase;
     color: hsl(0, 0%, 96%);
+}
+
+.drop{
+    width: auto;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.info-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: hsl(180, 2%, 13%);
+}
+
+.info-tooltip{
+    font-size: 2rem;
+}
+
+.info-message-wrapper{
+    left: auto;
+    right: 0;
+    width: 1000%;
+}
+
+.info-message{
+    font-size: 1rem;
+    width: auto;
+}
+
+.info-message span:first-child{
+    color: yellow;
+}
+
+.info-message span:nth-child(2),
+.info-message span:last-child{
+    color: hsl(173, 52%, 53%);
 }
 
 .form-group {

@@ -254,6 +254,57 @@ nav.menu-nav{
     pointer-events: auto;
 }
 
+/* django flash Messages */
+.flash-message.modal{
+    display: grid;
+    gap: 0.8rem;
+    color: hsl(219, 15%, 95%);
+    position: fixed;
+    padding: 1rem 1rem;
+    top: 50%;
+    left: 50%;
+    min-width: 10rem;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: 5000;
+    transition: 200ms ease-in-out;
+    font-size: 1.5rem;
+}
+
+.inactive{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.success{
+    background-color: rgba(45, 185, 45, 0.719);
+}
+
+.danger{
+    background-color: rgba(235, 38, 38, 0.836);
+}
+
+.modal-btn{
+    background-color: hsl(180, 2%, 13%);
+    color: hsl(173, 52%, 53%);
+    height: 3rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.flash-tooltip{
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.flash-tooltip:hover{
+    transform: rotate(90deg);
+}
+
 @media screen and (max-width: 720px) {
     body{
         font-size: 14px;

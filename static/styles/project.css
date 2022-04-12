@@ -25,10 +25,34 @@
 
 .split-details{
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.project-username{
+.project-username,
+.project-description{
     font-size: 1.3rem;
+}
+
+.link-route{
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 7rem;
+    background-color: hsl(173, 52%, 53%);
+}
+
+.link-route span{
+    color: hsl(180, 2%, 13%);
+    font-weight: bold;
+}
+
+.link-tooltip{
+    font-size: 1.5rem;
+    color: hsl(180, 2%, 13%);
 }
 
 .project-name{
@@ -80,9 +104,35 @@
     font-size: 1.5rem;
 }
 
+.info-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.info-message-wrapper{
+    left: auto;
+    right: 0;
+}
+
+.info-message{
+    font-size: 1.7rem;
+    width: auto;
+}
+
+.info-message span{
+    color: hsl(173, 52%, 53%);
+}
 
 .info-tooltip{
-    font-size: 3rem;
+    font-size: 2.5rem;
+    color: hsl(0, 0%, 96%);
 }
 
 .ratings-container{
@@ -426,6 +476,11 @@
         height: 3rem;
     }
 
+    .info-message{
+        font-size: 1.2rem;
+    }
+    
+
     .rating-objects span{
         width: 3rem;
         height: 3rem;
@@ -469,6 +524,10 @@
         font-size: 0.8rem;
     }
 
+    .info-message{
+        font-size: 1rem;
+    }
+
     .rating-objects span{
         width: 2rem;
         height: 2rem;
@@ -504,10 +563,13 @@
         margin: 2rem 1rem;
     }
 
+    .info-message{
+        font-size: 0.8rem;
+    }
+
     .project-title{
         flex-direction: column;
         align-items: flex-start;
-        /* justify-content: flex-start; */
         gap: 20px;
     }
 

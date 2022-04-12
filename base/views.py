@@ -1,6 +1,5 @@
 from .models import Project, Profile
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -8,7 +7,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import APIView
 from .serializers import ProfileSerializer, ProjectSerializer, UserSerializer
 from django.db.models import Q
-from django.urls import reverse
 from django.contrib import messages 
 from .forms import ProjectForm, UserRegistrationForm, RatingForm
 
@@ -54,12 +52,12 @@ def login_page(request):
         try:
             user = User.objects.get(username=username)
         except Exception as e:
-            print(e)
             messages.error(request, 'User does not exist')
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, f' Welcome back {request.user.username}, we\'ve missed you.')
             return redirect('home')
         else:
             messages.error(request, 'Username or Password does not exist.')
@@ -84,12 +82,12 @@ def register_user(request):
                 user.username = user.username.lower()
                 user.save()
                 login(request, user)
+                messages.success(request, f'Hi {request.user.username}, Your account was successfully created')
                 return redirect('home')
             else:
-                messages.error(request, 'An error occured during registration')
+                messages.error(request, 'An error occured during registration, Try again')
     except Exception as e:
-        print(e)
-        messages.error('Something went wrong. Probably a connection issue. Try again')
+        messages.error(request,'Something went wrong. Probably a connection issue. Try again')
 
     context = { 'page':page, 'form':form }
     return render(request, 'base/login_register.html', context)
@@ -113,6 +111,7 @@ def submit_project(request):
                 user = form.save(commit=False)
                 user.user_project_id = request.user.id
                 user.save()
+                messages.success(request, f'{request.user.username}, Your project was successfully submited')
                 return redirect('home')
         except Exception as e:
             messages.error(request, 'An error occured during submition. Try again')
@@ -149,7 +148,7 @@ def add_ratings(request,pk):
                     rating.save()
                     messages.success(request, 'Your rating was added successfully')
                     return redirect('project',pk=pk)
-        except ValueError as e:
+        except Exception as e:
                 messages.error(request, 'Rating could not be added, Please try again. Ensure your values are between 1 and 10', e) 
                 return redirect('project',pk=pk)
 
