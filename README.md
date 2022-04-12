@@ -3,7 +3,7 @@ Awwards Clone. Submit your Project and have it be reviewed.
 Mini django project
 
 ## Table of contents
-  <!-- - [Screenshot](#screenshot) -->
+  - [Screenshot](#screenshot)
   - [Project Visual](#Screenshot)
   - [Project Description](#Project-description) 
   - [Built with](#built-with)
@@ -20,9 +20,9 @@ ___
 ---
 ### Introduction
 Awwards Clone.
-A basic clone of the famos Awwards website. Performs user authentication, stores user data in a database and Images are stored in a CDN.
+A basic clone of the famous Awwards website. Performs user authentication, stores user data in a database and Images are stored in a CDN.
 
-The goal of this project is to do a bit of practise on django. It performs user authentication and allows users to submit their projects for review or add reviews to other user's projects.  
+The goal of this project is to do a bit of practice on django. It allows users to submit their projects for review or add reviews to other user's projects.  
 
 Project is written with django 4.0.3 and python 3 in mind.
 
